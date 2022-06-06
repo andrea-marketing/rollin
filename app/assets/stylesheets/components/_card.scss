@@ -1,0 +1,48 @@
+.card-vehicle {
+  overflow: hidden;
+  background: white;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 4px;
+}
+
+.card-vehicle > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-vehicle h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-vehicle p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-vehicle .card-vehicle-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-vehicle-infos .card-vehicle-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
