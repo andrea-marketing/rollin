@@ -1,0 +1,33 @@
+.filter {
+  background-color: rgb(220, 220, 218);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0;
+}
+
+.filtered {
+  background-color: rgb(220, 220, 218);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 3gitpx rgba(0,0,0,0.2);
+}
