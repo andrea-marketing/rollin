@@ -1,1 +1,46 @@
-<h1> Whatever you want to put </h1>
+<div class="container">
+
+  <h1> Let's find you a vehicle! </h1>
+
+  <h2>Categories</h2>
+
+  <div class="filters">
+    <p class="filter">🚲</p>
+    <p class="filter">🛴</p>
+    <p class="filter">🛹</p>
+    <p class="filter">🛼</p>
+    <p class="filter">⛸</p>
+  </div>
+
+  <h2>Vehicles</h2>
+
+
+  <div class="cards">
+    <% @vehicles.each do |vehicle| %>
+
+    <div class="card-vehicle">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-vehicle-infos">
+        <div>
+          <p><%= vehicle.vehicle_type.capitalize  %></p>
+          <p><%= vehicle.description  %></p>
+        </div>
+        <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+        <div class="filtered">
+          <% if vehicle.vehicle_type == "bike" %>
+            <p>🚲</p>
+          <% elsif vehicle.vehicle_type == "scooter" %>
+            <p>🛴</p>
+          <% elsif vehicle.vehicle_type == "skate" %>
+            <p>🛹</p>
+          <% elsif vehicle.vehicle_type == "rolling-skates" %>
+            <p>🛼</p>
+          <% else %>
+            <p>⛸</p>
+          <% end %>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
