@@ -6,14 +6,6 @@ GIT
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
 
-GIT
-  remote: https://github.com/heartcombo/simple_form.git
-  revision: 23205201a935c7e52c39549756e2ec2e2ec47793
-  specs:
-    simple_form (5.1.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -218,6 +210,9 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -282,7 +277,7 @@ DEPENDENCIES
   rails (~> 6.1.6)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
-  simple_form!
+  simple_form (~> 5.1)
   spring
   turbolinks (~> 5)
   tzinfo-data
