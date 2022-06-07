@@ -16,6 +16,10 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def show
+    @vehicle = Vehicle.find(params[:user_id])
+  end
+
   private
 
   def vehicle_params
