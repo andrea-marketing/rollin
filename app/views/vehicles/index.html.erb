@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1> Let's find you a vehicle! </h1>
+  <h1> Let's find you <i class="highlight">a vehicle!</i> </h1>
 
   <h2>Categories</h2>
 
@@ -13,34 +13,35 @@
   </div>
 
   <h2>Vehicles</h2>
-
+  <%= link_to ("<i class='fa-solid fa-plus'></i> Add a new vehicle").html_safe, new_vehicle_path, class:"btn-blue"%>
 
   <div class="cards">
     <% @vehicles.each do |vehicle| %>
-
-    <div class="card-vehicle">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-vehicle-infos">
-        <div>
-          <p><%= vehicle.vehicle_type.capitalize  %></p>
-          <p><%= vehicle.description  %></p>
-        </div>
-        <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
-        <div class="filtered">
-          <% if vehicle.vehicle_type == "bike" %>
-            <p>🚲</p>
-          <% elsif vehicle.vehicle_type == "scooter" %>
-            <p>🛴</p>
-          <% elsif vehicle.vehicle_type == "skate" %>
-            <p>🛹</p>
-          <% elsif vehicle.vehicle_type == "rolling-skates" %>
-            <p>🛼</p>
-          <% else %>
-            <p>⛸</p>
-          <% end %>
+      <%= link_to new_vehicle_path, :action => 'go' do %>
+        <div class="card-vehicle">
+          <img src="https://images.unsplash.com/photo-1597019558926-3eef445fdf60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2thdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" />
+          <div class="card-vehicle-infos">
+            <div>
+              <p><%= vehicle.vehicle_type.capitalize  %></p>
+              <p><%= vehicle.description  %></p>
+            </div>
+            <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+            <div class="filtered">
+              <% if vehicle.vehicle_type == "bike" %>
+                <p>🚲</p>
+              <% elsif vehicle.vehicle_type == "scooter" %>
+                <p>🛴</p>
+              <% elsif vehicle.vehicle_type == "skate" %>
+                <p>🛹</p>
+              <% elsif vehicle.vehicle_type == "rolling-skates" %>
+                <p>🛼</p>
+              <% else %>
+                <p>⛸</p>
+              <% end %>
+              </div>
           </div>
-      </div>
-    </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
