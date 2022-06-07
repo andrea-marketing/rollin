@@ -21,7 +21,9 @@
     <% @vehicles.each do |vehicle| %>
       <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
         <div class="card-vehicle">
-          <img src="https://images.unsplash.com/photo-1597019558926-3eef445fdf60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2thdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" />
+          <% if vehicle.photo.attached? %>
+            <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <div class="card-vehicle-infos">
             <div>
               <p><%= vehicle.vehicle_type.capitalize  %></p>
