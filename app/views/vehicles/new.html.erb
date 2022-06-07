@@ -2,12 +2,12 @@
   <div class="row mt-4">
     <div class="col">
         <h3> Create a new vehicle </h3>
-         <%= simple_form_for @vehicle do |f| %>
+         <%= simple_form_for(@vehicle) do |f| %>
           <%= f.input :vehicle_type, collection: Vehicle::CATEGORIES , placeholder: 'Bike' %>
           <%= f.input :price, placeholder: '20' %>
           <%= f.input :address, placeholder: 'Marseille' %>
           <%= f.input :description %>
-          <%= f.input :photo, as: :file %>
+          <%# <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-info' %>
         <% end %>
     </div>
