@@ -31,7 +31,7 @@ skate_green.photo.attach(io: file_skate_green, filename: 'nes.png', content_type
 skate_green.user = user1
 skate_green.save!
 
-rolling_skate = Vehicle.new(vehicle_type: 'rolling-skates', description: 'rollers jaunes', address: 'Marseille', price: 20, 'Rollers jaunes')
+rolling_skate = Vehicle.new(vehicle_type: 'rolling-skates', description: 'rollers jaunes', address: 'Marseille', price: 20, name: 'Rollers jaunes')
 rolling_skate.photo.attach(io: file_rolling_skate, filename: 'nes.png', content_type: 'image/jpg')
 rolling_skate.user = user2
 rolling_skate.save!
