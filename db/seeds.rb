@@ -23,7 +23,7 @@ user = User.create!(email: "a.albrespy@gmail.com", password: "rollin2022", passw
       vehicle = Vehicle.new(vehicle_type: category.sample, description: Faker::Lorem.sentence, address: Faker::Address.city, price: Faker::Number.between(from: 10, to: 100))
       vehicle.user = user
       vehicle.save!
-    end
+end
 
 # User.create(email: "a.albrespy@gmail.com", password: "rollin2022", password_confirmation: "rollin2022", first_name: "Adele", last_name: "Albrespy")
 # User.create(email: "andrea@gmail.com", password: "wagon2022", password_confirmation: "wagon2022", first_name: "Andrea", last_name: "Blabla")
