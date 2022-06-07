@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicles, only: [:show, :edit]
   def index
-    @vehicles = Vehicle.all
+    @vehicles = policy_scope(Vehicle)
   end
 
   def new
@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     if @vehicle.save
-      redirect_to root_path
+      redirect_to vehicle_path(@vehicle)
     else
       render :new
     end
@@ -27,10 +27,11 @@ class VehiclesController < ApplicationController
   private
 
   def set_vehicles
+    authorize @vehicle
     @vehicle = Vehicle.find(params[:id])
   end
 
   def vehicle_params
-    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user_id, :photo)
+    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user_id, :photo, :name)
   end
 end
