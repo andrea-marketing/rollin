@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 # my gems
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 5.1.3'
 gem 'simple_form', '~> 5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
