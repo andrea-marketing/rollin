@@ -2,5 +2,23 @@
 @import "home";
 
 h1 {
-  margin: 20px;
+  margin: 35px 0;
+  font-size: 50px;
+  i {
+    color: $blue;
+    background-color: #1f46903d;
+  }
+}
+
+h2 {
+  color: $dark-blue;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #fafafb;
 }
