@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicles, only: [:show, :edit]
   def index
-    @vehicles = Vehicle.all
+    @vehicles = policy_scope(Vehicle)
   end
 
   def new
@@ -27,6 +27,7 @@ class VehiclesController < ApplicationController
   private
 
   def set_vehicles
+    authorize @vehicle
     @vehicle = Vehicle.find(params[:id])
   end
 
