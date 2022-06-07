@@ -1,14 +1,16 @@
-<section class="section">
-  <div class="container">
-    <h1 class="title"><%= @vehicle.vehicle_type %></h1>
+<div class="d-flex justify-content-center container mt-5">
+  <div class="card p-3 bg-white">
+    <div class="about-product text-center mt-2"><img src="https://www.cyclesolutions.co.uk/images/P-M135.jpg" width="300">
+      <div>
+        <h4> <%= @vehicle.name %> </h4>
+        <h6 class="mt-0 text-black-50"> <%= @vehicle.vehicle_type %> </h6>
+      </div>
+    </div>
+    <div class="stats mt-2">
+        <div class="d-flex justify-content-between p-price"><span> <%= @vehicle.price %> </span></div>
+        <div class="d-flex justify-content-between p-price"><span> <%= @vehicle.address %> </span></div>
+        <div class="d-flex justify-content-between p-price"><span> <%= @vehicle.description %> </span></div>
+    </div>
+    <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>Total price</span><span>$XXXXX</span></div>
   </div>
-  <div class="description">
-    <%= @vehicle.price %>
-  </div>
-    <div class="description">
-    <%= @vehicle.address %>
-  </div>
-    <div class="description">
-    <%= @vehicle.description %>
-  </div>
-</section>
+</div>

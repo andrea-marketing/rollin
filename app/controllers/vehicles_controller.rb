@@ -9,6 +9,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = current_user
     if @vehicle.save
       redirect_to vehicle_path(@vehicle)
     else
@@ -23,6 +24,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user_id)
+    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user_id, :name)
   end
 end
