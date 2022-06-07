@@ -17,7 +17,7 @@
 
   <div class="cards">
     <% @vehicles.each do |vehicle| %>
-      <%= link_to new_vehicle_path, :action => 'go' do %>
+      <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
         <div class="card-vehicle">
           <img src="https://images.unsplash.com/photo-1597019558926-3eef445fdf60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2thdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" />
           <div class="card-vehicle-infos">
