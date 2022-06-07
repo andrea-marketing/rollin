@@ -1,5 +1,7 @@
 class Vehicle < ApplicationRecord
   belongs_to :user, dependent: :destroy
+  has_many :bookings
+
   has_one_attached :photo
 
   CATEGORIES = %w[bike skate rolling-skates ice-skates scooter]
