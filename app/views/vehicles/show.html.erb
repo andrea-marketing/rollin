@@ -1,8 +1,14 @@
 <section class="section">
   <div class="container">
-    <h1 class="title"><%= @vehicle.description %></h1>
+    <h1 class="title"><%= @vehicle.vehicle_type %></h1>
   </div>
   <div class="description">
+    <%= @vehicle.price %>
+  </div>
+    <div class="description">
+    <%= @vehicle.address %>
+  </div>
+    <div class="description">
     <%= @vehicle.description %>
   </div>
 </section>
