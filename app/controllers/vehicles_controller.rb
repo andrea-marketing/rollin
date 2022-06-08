@@ -39,6 +39,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
     authorize @vehicle
     @booking = Booking.new
     authorize @booking
