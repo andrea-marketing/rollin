@@ -32,6 +32,8 @@ class VehiclesController < ApplicationController
 
   def show
     authorize @vehicle
+    @booking = Booking.new
+    authorize @booking
   end
 
   def destroy
