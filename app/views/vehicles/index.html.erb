@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6">
-        <div  style="width: 100%; height: 80vh;"
+        <div  style="width: 100%; height: 100vh;"
               data-controller="mapbox"
               data-mapbox-markers-value="<%= @markers.to_json %>"
               data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -34,7 +34,7 @@
                 <% end %>
                 <div class="card-vehicle-infos">
                   <div>
-                    <p><strong><%= vehicle.name.capitalize  %></strong></p>
+                    <p><strong><%= vehicle.name %></strong></p>
                     <p><%= vehicle.description  %></p>
                   </div>
                   <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
