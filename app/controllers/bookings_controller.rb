@@ -1,23 +1,25 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy, :show]
-  before_action :set_vehicle, only: [:new, :create]
 
-  def index
-    @bookings = Booking.where(user_id: current_user.id)
-  end
+  # def index
+  #   @user = current_user
+  #   @bookings = Booking.where(user_id: @user.id)
+  # end
 
   def show
     @booking = @booking.vehicle
   end
 
   def new
+    @vehicle = Vehicle.find(params[:vehicle_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    booking.user = current_user
+    @vehicle = Vehicle.find(params[:vehicle_id])
     @booking.vehicle = @vehicle
-    @booking.user = current_user
     if @booking.start_date && @booking.end_date
       @booking.value = (@booking.start_date - @booking.end_date).to_f * @booking.vehicle.price.to_f
     else
