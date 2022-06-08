@@ -20,11 +20,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    booking.user = current_user
+    @booking.user = current_user
     @vehicle = Vehicle.find(params[:vehicle_id])
     @booking.vehicle = @vehicle
     if @booking.start_date && @booking.end_date
-      @booking.value = (@booking.start_date - @booking.end_date).to_f * @booking.vehicle.price.to_f
+      @booking.price = (@booking.end_date - @booking.start_date).to_f * @booking.vehicle.price.to_f
     else
       @booking.price = 0
     end

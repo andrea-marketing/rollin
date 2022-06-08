@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Calendar Picker</h2>
+
+    <%= simple_form_for([@vehicle, @booking]) do |f| %>
+      <%= f.input :start_date, as: :string, required: true, input_html: {id: "range_start"} %>
+      <%= f.input :end_date, as: :string, required: true, input_html: {id: "range_end"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary", placeholder: "Make a reservation" %>
+    <% end %>
+  </div>
+</div>
