@@ -1,13 +1,14 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy, :show]
 
-  # def index
-  #   @user = current_user
-  #   @bookings = Booking.where(user_id: @user.id)
-  # end
+  def index
+    @user = current_user
+    @bookings = @user.bookings
+    @bookings = Booking.all
+  end
 
   def show
-    @booking = @booking.vehicle
+    @vehicle = Vehicle.find(params[:vehicle_id])
   end
 
   def new
