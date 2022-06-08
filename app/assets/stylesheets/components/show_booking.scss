@@ -1,0 +1,44 @@
+.booking-box {
+  background-color: white;
+  border: 1px #E6E6E6 solid ;
+  border-radius: 5px;
+  color: #666666;
+  padding: 15px;
+  margin-top: 10px;
+  }
+
+  .booking-picture {
+  border-radius: 5px;
+  box-shadow: 16px 12px 22px -10px rgba(0,0,0,0.6);
+
+  }
+
+  .btn-box-watch-show {
+  margin-top: 10px;
+  }
+
+  .box-watch-show-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  }
+
+  .box-informations {
+  width: 100%;
+  }
+
+  .booking-recap-container {
+  padding: 17px 57px 53px 56px;
+  background-color: #fff;
+  border-radius: .3125em;
+  border: 1px solid #dce3e6;
+  width: 100%;
+  }
+
+  .recap-map {
+  margin: auto;
+  }
+
+  .btn-show-more {
+    margin-top: 25px;
+  }

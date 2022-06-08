@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle = @booking.vehicle
     authorize @booking
   end
 
