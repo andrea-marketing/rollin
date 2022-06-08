@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   def index
     @vehicles = policy_scope(Vehicle).order(created_at: :desc)
   end
@@ -34,6 +34,12 @@ class VehiclesController < ApplicationController
     authorize @vehicle
   end
 
+  def destroy
+    authorize @vehicle
+    @vehicle.destroy
+    redirect_to root_path
+  end
+
   private
 
   def set_vehicle
@@ -41,6 +47,6 @@ class VehiclesController < ApplicationController
   end
 
   def vehicle_params
-    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user_id, :photo, :name)
+    params.require(:vehicle).permit(:vehicle_type, :description, :address, :price, :user, :photo, :name)
   end
 end

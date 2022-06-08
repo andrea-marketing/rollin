@@ -16,4 +16,15 @@ class VehiclePolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def update?
+    # @record.user == user || user.admin?
+    return true
+    raise
+  end
+
+  def destroy?
+    # @record.user == user || user.admin?
+    return true
+  end
 end

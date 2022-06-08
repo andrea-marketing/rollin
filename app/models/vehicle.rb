@@ -1,6 +1,6 @@
 class Vehicle < ApplicationRecord
-  belongs_to :user, dependent: :destroy
   has_many :bookings
+  belongs_to :user
 
   has_one_attached :photo
 
