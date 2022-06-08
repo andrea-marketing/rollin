@@ -1,0 +1,31 @@
+.product-imgs > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-imgs {
+  display: flex;
+}
+
+.product-card {
+  overflow: hidden;
+  background: white;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 4px;
+  color: gray;
+  padding: 40px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.product-description {
+  margin-left: 80px;
+}
