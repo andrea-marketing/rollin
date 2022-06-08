@@ -18,7 +18,7 @@ class VehiclePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    return true
   end
 
   def destroy?
