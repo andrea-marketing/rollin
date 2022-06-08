@@ -16,4 +16,8 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr('#datepicker');
+})
+
 initFlatpickr();
