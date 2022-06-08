@@ -1,18 +1,21 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy, :show]
 
-  # def index
-  #   @user = current_user
-  #   @bookings = Booking.where(user_id: @user.id)
-  # end
+  def index
+    # @user = current_user
+    # @bookings = @user.bookings
+    @bookings = Booking.all
+  end
 
   def show
-    @booking = @booking.vehicle
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    authorize @booking
   end
 
   def new
     @vehicle = Vehicle.find(params[:vehicle_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -26,15 +29,17 @@ class BookingsController < ApplicationController
       @booking.price = 0
     end
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to vehicle_booking_path(@vehicle, @booking)
     else
       redirect_to vehicle_path(@vehicle)
     end
+    authorize @booking
   end
 
   def destroy
     @booking.destroy
     redirect_to root_path
+    authorize @booking
   end
 
   private
