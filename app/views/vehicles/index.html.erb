@@ -1,6 +1,9 @@
 <div class="container">
+  <div class="header">
+    <p> Hello <i class="highlight"> <%=@current_user.first_name %> </i>  👋🏼 !!</p>
+    <h1> Let's find you <i class="highlight">a vehicle!</i> </h1>
+  </div>
 
-  <h1> Hello <%=@current_user.first_name %> 👋🏼 !! Let's find you <i class="highlight">a vehicle!</i> </h1>
 
   <h2>Categories</h2>
 
@@ -13,9 +16,6 @@
   </div>
 
   <h2>Vehicles</h2>
-  <% if policy(Vehicle).create? %>
-    <%= link_to ("<i class='fa-solid fa-plus'></i> Add a new vehicle").html_safe, new_vehicle_path, class:"btn-blue"%>
-  <% end %>
   <div class="info">
     <div class="cards">
       <% @vehicles.each do |vehicle| %>
