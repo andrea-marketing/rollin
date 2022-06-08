@@ -10,9 +10,10 @@
     <div class= "product-info">
       <div class="product-card">
         <p><%= @vehicle.price %>€/day x total number of days</p>
-        <p>taxes</p>
-        <p><strong>TOTAL PRICE</strong></p>
-        <a href="" class="btn-blue">Make a reservation</a>
+
+        <p><strong>Total :<%= @booking.price %></strong></p>
+
+        <%= render "calendarpicker", vehicle: @vehicle %>
       </div>
       <div class= "product-description">
         <p>Address: <%= @vehicle.address %></p>
