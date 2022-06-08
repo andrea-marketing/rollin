@@ -20,7 +20,6 @@ class VehiclePolicy < ApplicationPolicy
   def update?
     # @record.user == user || user.admin?
     return true
-    raise
   end
 
   def destroy?

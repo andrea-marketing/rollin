@@ -16,36 +16,42 @@
   <% if policy(Vehicle).create? %>
     <%= link_to ("<i class='fa-solid fa-plus'></i> Add a new vehicle").html_safe, new_vehicle_path, class:"btn-blue"%>
   <% end %>
-
-  <div class="cards">
-    <% @vehicles.each do |vehicle| %>
-      <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
-        <div class="card-vehicle">
-          <% if vehicle.photo.attached? %>
-            <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-          <div class="card-vehicle-infos">
-            <div>
-              <p><strong><%= vehicle.name.capitalize  %></strong></p>
-              <p><%= vehicle.description  %></p>
-            </div>
-            <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
-            <div class="filtered">
-              <% if vehicle.vehicle_type == "bike" %>
-                <p>🚲</p>
-              <% elsif vehicle.vehicle_type == "scooter" %>
-                <p>🛴</p>
-              <% elsif vehicle.vehicle_type == "skate" %>
-                <p>🛹</p>
-              <% elsif vehicle.vehicle_type == "rolling-skates" %>
-                <p>🛼</p>
-              <% else %>
-                <p>⛸</p>
-              <% end %>
+  <div class="info">
+    <div class="cards">
+      <% @vehicles.each do |vehicle| %>
+        <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
+          <div class="card-vehicle">
+            <% if vehicle.photo.attached? %>
+              <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <div class="card-vehicle-infos">
+              <div>
+                <p><strong><%= vehicle.name.capitalize  %></strong></p>
+                <p><%= vehicle.description  %></p>
               </div>
+              <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+              <div class="filtered">
+                <% if vehicle.vehicle_type == "bike" %>
+                  <p>🚲</p>
+                <% elsif vehicle.vehicle_type == "scooter" %>
+                  <p>🛴</p>
+                <% elsif vehicle.vehicle_type == "skate" %>
+                  <p>🛹</p>
+                <% elsif vehicle.vehicle_type == "rolling-skates" %>
+                  <p>🛼</p>
+                <% else %>
+                  <p>⛸</p>
+                <% end %>
+                </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div  style="width: 100%; height: 600px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
