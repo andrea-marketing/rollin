@@ -1,52 +1,60 @@
-<h1>My Vehicles</h1>
-
 <div class= "container">
-<% @vehicles.each do |vehicle| %>
-  <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
-    <div class="card-vehicle">
-      <% if vehicle.photo.attached? %>
-        <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-      <div class="card-vehicle-infos">
-        <div>
-          <p><strong><%= vehicle.name %></strong></p>
-          <p><%= vehicle.description  %></p>
-        </div>
-        <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
-        <div class="filtered">
-          <% if vehicle.vehicle_type == "bike" %>
-            <p>🚲</p>
-          <% elsif vehicle.vehicle_type == "scooter" %>
-            <p>🛴</p>
-          <% elsif vehicle.vehicle_type == "skate" %>
-            <p>🛹</p>
-          <% elsif vehicle.vehicle_type == "rolling-skates" %>
-            <p>🛼</p>
-          <% else %>
-            <p>⛸</p>
-          <% end %>
+    <h1 class="my-4">My Vehicles</h1>
+      <div class="reservation d-flex">
+        <% @vehicles.each do |vehicle| %>
+          <div class="">
+            <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
+              <div class="card-vehicle">
+                <% if vehicle.photo.attached? %>
+                  <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+                <% end %>
+                <div class="card-vehicle-infos">
+                  <div>
+                    <p><strong><%= vehicle.name %></strong></p>
+                    <p><%= vehicle.description  %></p>
+                  </div>
+                  <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+                  <div class="filtered">
+                    <% if vehicle.vehicle_type == "bike" %>
+                      <p>🚲</p>
+                    <% elsif vehicle.vehicle_type == "scooter" %>
+                      <p>🛴</p>
+                    <% elsif vehicle.vehicle_type == "skate" %>
+                      <p>🛹</p>
+                    <% elsif vehicle.vehicle_type == "rolling-skates" %>
+                      <p>🛼</p>
+                    <% else %>
+                      <p>⛸</p>
+                    <% end %>
+                  </div>
+              </div>
+            </div>
           </div>
+          <% end %>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-<% end %>
-</div>
-
-<h1>Mes Reservations</h1>
-
-<% @booking_request.each do |booking| %>
-<%= booking.vehicle.name %>
-<%= booking.price %>
-<%= booking.user.first_name %>
-<% end %>
-
-<h1>Demandes de réservations</h1>
-
-<% @booking_demands.each do |booking| %>
-
-  <div class="text-center py-3">
-    <h4> <%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h4>
-    <%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%>
-    <h3>Montant <%= booking.price %>€</h3>
   </div>
-<% end %>
+
+  <div class="container">
+    <h1 class=" my-4">Demandes de réservations</h1>
+    <div class="reservation d-flex">
+      <% @booking_demands.each do |booking| %>
+        <div class="card-vehicle p-4">
+          <h4> <%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h4>
+          <%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%>
+            <h3>Montant <%= booking.price %>€</h3>
+              <div class="card-vehicle-infos">
+                <%= button_to "Accept", accept_this_booking_path(booking), method: :patch %>
+                <%= button_to "Reject", reject_this_booking_path(booking), method: :patch  %>
+                  <% if booking.status == 0  %>
+                    <p> "En attente" </p>
+                    <% elsif booking.status == 1 %>
+                    <p> "Confirmé </p>
+                    <% else %>
+                    <p> "Rejeté"</p>
+                  <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+  </div>

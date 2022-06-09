@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
+  patch "profile/:id/accept", to: "bookings#accept", as: :accept_this_booking
+  patch "profile/:id/reject", to: "bookings#reject", as: :reject_this_booking
+
   resources :bookings, only: [:destroy]
 
   get 'my_bookings', to: 'bookings#my_bookings'
