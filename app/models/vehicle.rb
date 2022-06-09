@@ -10,6 +10,12 @@ class Vehicle < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  enum status: {
+    pending: 0,
+    accepted: 1,
+    rejected: 2
+  }
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :vehicle_type, :name, :address ],
@@ -19,4 +25,5 @@ class Vehicle < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
 end
