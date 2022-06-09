@@ -1,13 +1,14 @@
-.btn-blue {
+.btn-blue{
   color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: $dark-blue;
-  transition: background 0.3s ease;
-  text-decoration: none;
+  font-weight: bolder;
+  background: linear-gradient(-45deg, #5279ee, #3cd6e7, #23a6d5, #23d5ab);
+  border-radius: 30px;
+  padding: 8px 40px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position .5s;
 }
-
-.btn-blue:hover {
-  background: #96b0f2f1;
+.btn-blue:hover{
+  background-position: 0 0;
   color: white;
 }
