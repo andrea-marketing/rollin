@@ -9,11 +9,15 @@
     </div>
     <div class= "product-info">
       <div class="product-card">
-        <p id="dayPrice" data-price="<%= @vehicle.price %>"><%= @vehicle.price %>€/day</p>
-        <p id="totalPrice"></p>
-        <p><strong>Total :<%= @booking.price %></strong></p>
+      <h2>Réservations</h2>
+      <h2><%= @vehicle.name %></h2>
+      <h2 id="dayPrice" data-price="<%= @vehicle.price %>"><%= @vehicle.price %>€ par jour</h2>
 
-        <%= render "calendarpicker", vehicle: @vehicle %>
+      <%= render "calendarpicker", vehicle: @vehicle %>
+
+        <p id="totalPrice"></p>
+        <p><strong><%= @booking.price %></strong></p>
+
       </div>
       <div class= "product-description">
         <p>Address: <%= @vehicle.address %></p>
