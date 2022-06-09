@@ -24,4 +24,8 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def my_bookings?
+    true
+  end
 end

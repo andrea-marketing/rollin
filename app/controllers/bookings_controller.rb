@@ -7,6 +7,14 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def my_bookings
+    @user = current_user
+    @bookings = @user.bookings
+    authorize @bookings
+    # @vehicles = Vehicle.select(params[:vehicle_id])
+    # @booked_vehicles = vehicles.booking_id
+  end
+
   def show
     @vehicle = Vehicle.find(params[:vehicle_id])
     @vehicle = @booking.vehicle
