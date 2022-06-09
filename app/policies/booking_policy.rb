@@ -25,6 +25,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def my_bookings?
+    true
+  end
+  
   def accept?
     true
   end
