@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand", :action => 'go' do %>
+    <%= link_to vehicles_path, class: "navbar-brand", :action => 'go' do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
       <h2>Rollin'</h2>
     <% end %>
@@ -13,7 +13,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active px-3">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", vehicles_path, class: "nav-link" %>
           </li>
           <li class="nav-item px-3">
             <%= link_to "New", new_vehicle_path, class: "nav-link" %>
@@ -21,8 +21,10 @@
           <li class="nav-item dropdown px-3">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My vehicles", "#", class: "dropdown-item" %>
+
+              <%= link_to "My vehicles", dashboard_path, class: "dropdown-item" %>
               <%= link_to "My bookings", my_bookings_path, class: "dropdown-item" %>
+
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

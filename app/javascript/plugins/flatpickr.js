@@ -2,10 +2,33 @@ import flatpickr from "flatpickr";
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 const initFlatpickr = () => {
-  flatpickr("#range_start", {
+  flatpickr(".range", {
     altInput: true,
-    plugins: [new rangePlugin({ input: "#range_end"})]
+    disableMobile: true
   });
+  const bookingForm = document.querySelector('#new_booking')
+  const startDate = document.querySelector('#range_start')
+  const endDate = document.querySelector('#range_end')
+
+  bookingForm.addEventListener("change", event => {
+    const startValueInline = Number((startDate.value).replaceAll("-", ""));
+    const endValueInline = Number((endDate.value).replaceAll("-", ""));
+    const total = endValueInline - startValueInline
+    const dayPrice = document.querySelector("#dayPrice");
+    const price = Number(dayPrice.dataset.price)
+    if ( total > 0) {
+      totalPrice.innerHTML = `
+       <p>Nb de jours total : ${total}</p>
+       <p>Prix total : ${total * price}</p>
+      `
+    }
+  })
 }
 
 export { initFlatpickr };
+/*
+flatpickr("#range_end", {
+  onChange: function(selectedDates, dateStr, instance) {
+    console.log(selectedDates);
+  }
+}); */
