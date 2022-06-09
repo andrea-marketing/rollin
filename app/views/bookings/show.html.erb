@@ -1,13 +1,14 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-sm-6">
       <div class="wrapper" id="booking-recap-wrapper">
         <div class="booking-recap-container">
           <div class="text-center">
-            <h1>Your reservation</h1>
+            <h1>Ta réservation</h1>
+            <h2>en attente de confirmation</h2>
             <h4> <%= "#{@booking.vehicle.user.first_name}'s #{@booking.vehicle.name}"%></h4>
             <%= "#{@booking.start_date.strftime('%d/%m/%Y')} - #{@booking.end_date.strftime('%d/%m/%Y')}"%>
-            <h3>You're paying: <%= @booking.price %>€</h3>
+            <h3><%= @booking.price %>€</h3>
             <div class="btn-show-more">
               <%= link_to "Show me other vehicles", vehicles_path, class: "btn btn-primary" %>
             </div>
@@ -17,3 +18,10 @@
     </div>
   </div>
 </div>
+
+<%= button_to "Accept", accept_vehicle_booking_path(@booking), method: :patch %>
+<%= button_to "Reject", reject_vehicle_booking_path(@booking), method: :patch %>
+
+<% if @booking.status == 0  %>
+   <p> "En attente" </p>
+<% end %>
