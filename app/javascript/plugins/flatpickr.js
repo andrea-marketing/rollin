@@ -18,8 +18,8 @@ const initFlatpickr = () => {
     const price = Number(dayPrice.dataset.price)
     if ( total > 0) {
       totalPrice.innerHTML = `
-       <p>Nb de jours total : ${total}</p>
-       <p>Prix total : ${total * price}</p>
+       <h2>Nombres de jours : ${total} jours</h2>
+       <h2> Total : ${total * price} €</h2>
       `
     }
   })
