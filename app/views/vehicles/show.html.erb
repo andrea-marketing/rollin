@@ -9,8 +9,8 @@
     </div>
     <div class= "product-info">
       <div class="product-card">
-        <p><%= @vehicle.price %>€/day</p>
-
+        <p id="dayPrice" data-price="<%= @vehicle.price %>"><%= @vehicle.price %>€/day</p>
+        <p id="totalPrice"></p>
         <p><strong>Total :<%= @booking.price %></strong></p>
 
         <%= render "calendarpicker", vehicle: @vehicle %>

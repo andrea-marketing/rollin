@@ -20,5 +20,4 @@ import { priceFinder } from "../plugins/price";
 document.addEventListener('turbolinks:load', function() {
   initFlatpickr();
   priceFinder()
-
 })
