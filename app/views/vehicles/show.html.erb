@@ -1,40 +1,42 @@
 <div class="container">
-  <h1><%= @vehicle.name %></h1>
-  <h3><%= @vehicle.vehicle_type  %> </h3>
-  <div class= "product">
-    <div class="product-imgs">
-      <img src="https://images.unsplash.com/photo-1550035213-ad21a6cf4288?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aWNlJTIwc2thdGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60">
-      <img src="https://images.unsplash.com/photo-1589663924441-4bbcd2fb4391?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aWNlJTIwc2thdGVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60">
-      <img src="https://images.unsplash.com/photo-1638720495078-facd4bd6625f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlJTIwc2thdGVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60">
-    </div>
-    <div class= "product-info">
-      <div class="product-card">
-      <h2>Réservations</h2>
+  <div class="header">
+    <div class="title">
+      <h1><em><%= @vehicle.user.first_name %>'s <%= @vehicle.vehicle_type %></em></h1>
       <h2><%= @vehicle.name %></h2>
-      <h2 id="dayPrice" data-price="<%= @vehicle.price %>"><%= @vehicle.price %>€ par jour</h2>
+      <p><em><%= @vehicle.address %></em></p>
+    </div>
+    <div class="buttons">
+      <% if policy(Vehicle).edit? %>
+        <%= link_to ("<i class='fa-solid fa-pen-to-square'></i>").html_safe, edit_vehicle_path, class:"btn-blue"%>
+      <% end %>
+      <% if policy(Vehicle).destroy? %>
+        <%= link_to ("<i class='fa-solid fa-xmark'></i>").html_safe,
+                      vehicle_path(@vehicle),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } ,
+                      class:"btn-red"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class= "product">
+
+    <div class= "product-info">
+          <% if @vehicle.photo.attached? %>
+            <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+
+    </div>
+
+    <div class="card-reservation">
+      <h2>Réservations</h2>
+      <h3><%= @vehicle.name %></h3>
+      <p id="dayPrice" data-price="<%= @vehicle.price %>">  <%= @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i> par jour</p>
 
       <%= render "calendarpicker", vehicle: @vehicle %>
 
-        <p id="totalPrice"></p>
-        <p><strong><%= @booking.price %></strong></p>
-
-      </div>
-      <div class= "product-description">
-        <p>Address: <%= @vehicle.address %></p>
-        <h4>Description</h4>
-        <p><%= @vehicle.description %></p>
-        <div class="buttons">
-          <% if policy(Vehicle).edit? %>
-            <%= link_to ("<i class='fa-solid fa-pen-to-square'></i> Edit").html_safe, edit_vehicle_path, class:"btn-blue"%>
-          <% end %>
-          <% if policy(Vehicle).destroy? %>
-            <%= link_to ("<i class='fa-solid fa-xmark'></i> Delete").html_safe,
-                          vehicle_path(@vehicle),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" } %>
-          <% end %>
-        </div>
-      </div>
+      <p id="totalPrice"></p>
+      <p><strong><%= @booking.price %></strong></p>
     </div>
   </div>
 </div>

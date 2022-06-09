@@ -18,13 +18,37 @@
   padding: 40px;
 }
 
-.product-info {
+.header {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-top: 30px;
+  p {
+    color: $black;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+}
+
+.product {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-description {
   margin-left: 80px;
+}
+
+h1 {
+  margin: 0;
+  color: $blue;
+  font-size: 32px;
+  font-weight: bold;
 }

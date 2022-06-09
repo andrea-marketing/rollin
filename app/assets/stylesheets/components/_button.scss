@@ -6,8 +6,23 @@
   background-size: 200% 100%;
   background-position: 100% 0;
   transition: background-position .5s;
+  margin: 0 10px;
 }
 .btn-blue:hover{
+  background-position: 0 0;
+  color: white;
+}
+
+.btn-red{
+  color: white;
+  background: linear-gradient(-45deg, #ee5252, #ff7216, #d5a223, #efdd13);
+  border-radius: 30px;
+  padding: 8px 40px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position .5s;
+}
+.btn-red:hover{
   background-position: 0 0;
   color: white;
 }

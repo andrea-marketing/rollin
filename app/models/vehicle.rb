@@ -4,7 +4,7 @@ class Vehicle < ApplicationRecord
 
   has_one_attached :photo
 
-  CATEGORIES = %w[bike skate rolling-skates ice-skates scooter]
+  CATEGORIES = %w[Bike Skate RRolling-skates Ice-skates Scooter]
   validates :vehicle_type, inclusion: { in: CATEGORIES }
 
   geocoded_by :address
