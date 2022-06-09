@@ -1,5 +1,6 @@
-<h1>My Vehicles & Reservations</h1>
+<h1>My Vehicles</h1>
 
+<div class= "container">
 <% @vehicles.each do |vehicle| %>
   <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
     <div class="card-vehicle">
@@ -28,4 +29,24 @@
       </div>
     </div>
   <% end %>
+<% end %>
+</div>
+
+<h1>Mes Reservations</h1>
+
+<% @booking_request.each do |booking| %>
+<%= booking.vehicle.name %>
+<%= booking.price %>
+<%= booking.user.first_name %>
+<% end %>
+
+<h1>Demandes de réservations</h1>
+
+<% @booking_demands.each do |booking| %>
+
+  <div class="text-center py-3">
+    <h4> <%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h4>
+    <%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%>
+    <h3>Montant <%= booking.price %>€</h3>
+  </div>
 <% end %>
