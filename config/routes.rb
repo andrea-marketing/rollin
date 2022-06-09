@@ -14,5 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy]
+  
+  get 'my_bookings', to: 'bookings#my_bookings'
+
+
 end
