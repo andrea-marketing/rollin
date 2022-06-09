@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'vehicles#index'
+  root to: 'pages#home'
+  get 'home', to: 'pages#home'
   resources :vehicles do
     resources :bookings, except: [:destroy]
   end
