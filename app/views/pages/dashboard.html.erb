@@ -1,0 +1,31 @@
+<h1>My Vehicles & Reservations</h1>
+
+<% @vehicles.each do |vehicle| %>
+  <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
+    <div class="card-vehicle">
+      <% if vehicle.photo.attached? %>
+        <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <div class="card-vehicle-infos">
+        <div>
+          <p><strong><%= vehicle.name %></strong></p>
+          <p><%= vehicle.description  %></p>
+        </div>
+        <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+        <div class="filtered">
+          <% if vehicle.vehicle_type == "bike" %>
+            <p>🚲</p>
+          <% elsif vehicle.vehicle_type == "scooter" %>
+            <p>🛴</p>
+          <% elsif vehicle.vehicle_type == "skate" %>
+            <p>🛹</p>
+          <% elsif vehicle.vehicle_type == "rolling-skates" %>
+            <p>🛼</p>
+          <% else %>
+            <p>⛸</p>
+          <% end %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
