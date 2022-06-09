@@ -2,13 +2,17 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy]
   def index
     @vehicles = policy_scope(Vehicle).order(created_at: :desc)
-
-    @markers = @vehicles.geocoded.map do |vehicle|
-      {
-        lat: vehicle.latitude,
-        lng: vehicle.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
-      }
+    if params[:query].present?
+      @vehicles = Vehicle.global_search(params[:query])
+      @markers = @vehicles.geocoded.map do |vehicle|
+        {
+          lat: vehicle.latitude,
+          lng: vehicle.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
+        }
+      end
+    else
+      @vehicles = Vehicle.all
     end
   end
 
