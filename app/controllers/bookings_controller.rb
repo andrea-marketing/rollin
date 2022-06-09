@@ -1,10 +1,18 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:destroy, :show]
+  before_action :set_booking, only: [:destroy, :show, :accept, :reject]
 
   def index
     # @user = current_user
     # @bookings = @user.bookings
     @bookings = Booking.all
+  end
+
+  def my_bookings
+    @user = current_user
+    @bookings = @user.bookings
+    authorize @bookings
+    # @vehicles = Vehicle.select(params[:vehicle_id])
+    # @booked_vehicles = vehicles.booking_id
   end
 
   def show
@@ -34,6 +42,24 @@ class BookingsController < ApplicationController
     else
       redirect_to vehicle_path(@vehicle)
     end
+    authorize @booking
+  end
+
+  def accept
+    @booking.status = 1
+    authorize @booking
+
+    if @booking.save
+      sleep(2)
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def reject
+    @booking.status = 2
+    @booking.save
     authorize @booking
   end
 

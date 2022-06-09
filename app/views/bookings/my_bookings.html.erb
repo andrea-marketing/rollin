@@ -1,0 +1,21 @@
+<div class="container">
+  <% @bookings.each_with_index do |booking, index|%>
+  <div class="reservations">
+  <div class="row mt-3">
+    <div class="col-sm-6">
+      <div class="wrapper" id="booking-recap-wrapper">
+        <div class="booking-recap-container">
+          <div class="text-center">
+            <h1>Reservation: <%=index+1%></h1>
+            <h4> <%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h4>
+            <%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%>
+            <h3>You're paying: <%= booking.price %>€</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <%end%>
+</div>
