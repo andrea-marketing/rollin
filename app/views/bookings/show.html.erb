@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-4">
+  <div class="row mt-4 justify-content-center">
     <div class="col-sm-6">
       <div class="wrapper" id="booking-recap-wrapper">
         <div class="booking-recap-container">
@@ -10,7 +10,7 @@
             <%= "#{@booking.start_date.strftime('%d/%m/%Y')} - #{@booking.end_date.strftime('%d/%m/%Y')}"%>
             <h3><%= @booking.price %>€</h3>
             <div class="btn-show-more">
-              <%= link_to "Show me other vehicles", vehicles_path, class: "btn btn-primary" %>
+              <%= link_to "Show me other vehicles", vehicles_path, class: "btn btn-blue" %>
             </div>
           </div>
         </div>
@@ -18,10 +18,3 @@
     </div>
   </div>
 </div>
-
-<%= button_to "Accept", accept_vehicle_booking_path(@booking), method: :patch %>
-<%= button_to "Reject", reject_vehicle_booking_path(@booking), method: :patch %>
-
-<% if @booking.status == 0  %>
-   <p> "En attente" </p>
-<% end %>
