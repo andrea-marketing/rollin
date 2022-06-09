@@ -10,6 +10,14 @@
   border-radius: 200px;
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
+
+.filter:hover {
+  background: linear-gradient(146deg, rgb(149, 149, 149) 0%, rgba(254,254,254,1) 100%);
+}
+
+.filter p {
+  margin-top: 15px;
+}
 .filters {
   display: flex;
   justify-content: space-evenly;
@@ -26,4 +34,8 @@
   color: white;
   font-weight: bold;
   border-radius: 50%;
+}
+
+.on {
+  background-color: red;
 }

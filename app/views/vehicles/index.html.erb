@@ -14,7 +14,8 @@
         <% end %>
     </div>
   </div>
-<div class="container">
+
+<div class="organize">
 
   <div class="row">
 
@@ -23,12 +24,22 @@
 
         <h2>Categories</h2>
 
-        <div class="filters">
-          <p class="filter">🚲</p>
-          <p class="filter">🛴</p>
-          <p class="filter">🛹</p>
-          <p class="filter">🛼</p>
-          <p class="filter">⛸</p>
+        <div class="filters" data-controller="filter">
+          <div class="filter"  data-action="click->filter#on">
+            <p>🚲</p>
+          </div>
+          <div class="filter">
+            <p>🛴</p>
+          </div>
+          <div class="filter">
+            <p>🛹</p>
+          </div>
+          <div class="filter">
+            <p>🛼</p>
+          </div>
+          <div class="filter">
+            <p>⛸</p>
+          </div>
         </div>
 
         <h2>Vehicles</h2>
