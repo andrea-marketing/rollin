@@ -1,5 +1,5 @@
 <div class="container">
-  <% @bookings.each_with_index do |booking, index|%>
+  <!--<% @bookings.each_with_index do |booking, index|%>
   <div class="reservations">
   <div class="row mt-3">
     <div class="col-sm-6">
@@ -17,5 +17,24 @@
   </div>
 
   </div>
-  <%end%>
+  <%end %> -->
+  <div class="reservations">
+<h1>My Bookings</h1>
+<p>You have <%=@bookings.count%> bookings</p>
+<% @bookings.each_with_index do |booking, index|%>
+<div class="card-trip mt-4">
+
+  <%= cl_image_tag booking.vehicle.photo.key, height: 500, width: 800, crop: :fill %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h2>
+      <p><%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= booking.price %>€</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+<%end%>
+  </div>
 </div>
