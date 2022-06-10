@@ -30,8 +30,8 @@
               <h2><%= "#{@vehicle.user.first_name}'s #{@vehicle.name}"%></h2>
             </div>
           <h2 class="card-product-pricing" id="dayPrice" data-price="<%= @vehicle.price %>"> <%=  @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i>/ day</h2>
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle card-product-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if @vehicle.user.photo.attached? %>
+              <%= cl_image_tag @vehicle.user.photo.key, class: "avatar dropdown-toggle card-product-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag"photo-avatar-profil.png", class: "avatar dropdown-toggle card-product-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
