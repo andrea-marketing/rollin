@@ -159,7 +159,7 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
-  justify-content: space-around;
+  padding-left: 8px;
 }
 
 .card-booking img {
@@ -185,29 +185,34 @@
 .card-booking-infos {
   display: flex;
   justify-content: space-around;
+  flex-grow: 1;
 }
 
-.card-booking-infos .card-booking-user {
+/*.card-booking-infos .card-booking-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
-}
+}*/
 
 .description {
-  padding: 16px;
+  padding: 4px;
   text-align: left;
 }
 
 .statut {
   font-size: 12px;
+  align-items: center;
 }
 
-.card-booking-user .avatar-bordered {
+#avatar-bordered {
   position: absolute;
   right: 16px;
   //top: -20px;
   width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
 }
 
 .blink {
