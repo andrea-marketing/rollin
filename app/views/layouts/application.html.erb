@@ -13,10 +13,15 @@
   </head>
 
   <body>
+  <% unless (controller_name == "pages" && action_name == "home")%>
     <%= render 'shared/nav' %>
+  <% end %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render 'shared/footer'  %>
+  <% unless ((controller_name == "pages") && (action_name == "home"))%>
+    <%= render 'shared/footer' %>
+  <% end %>
+
   </body>
 </html>
