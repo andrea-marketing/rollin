@@ -18,29 +18,31 @@ file_skate_green = URI.open('https://res.cloudinary.com/drnoyqnck/image/upload/v
 file_rolling_skate = URI.open('https://res.cloudinary.com/drnoyqnck/image/upload/v1654604380/development/s-l500_o8drvw.jpg')
 file_ice_skate = URI.open('https://res.cloudinary.com/drnoyqnck/image/upload/v1654604379/development/patins_bo3xv0.jpg')
 
+
 file_user1 = URI.open('https://res.cloudinary.com/drnoyqnck/image/upload/v1654851029/development/photo_adele_eyxdws.jpg')
 
-user1 = User.create!(email: "adele@gmail.com", password: "rollin2022", password_confirmation: "rollin2022", first_name: "Adele", last_name: "Rollin")
+user1 = User.create(email: "adele@gmail.com", password: "rollin2022", password_confirmation: "rollin2022", first_name: "Adele", last_name: "Rollin")
 user1.photo.attach(io: file_user1, filename: 'nes.png', content_type: 'image/jpg')
 
-user2 = User.create!(email: "andrea@gmail.com", password: "wagon2022", password_confirmation: "wagon2022", first_name: "Andrea", last_name: "Blabla")
+user2 = User.create(email: "andrea@gmail.com", password: "wagon2022", password_confirmation: "wagon2022", first_name: "Andrea", last_name: "Blabla")
+
 
 bike_blue = Vehicle.new(vehicle_type: 'bike', description: 'vélo bleu de ville', address: 'Pl. Saint-Victor, 13007 Marseille', price: 50, name: 'Vélo bleu')
 bike_blue.photo.attach(io: file_bike_blue, filename: 'nes.png', content_type: 'image/jpg')
 bike_blue.user = user1
-bike_blue.save!
+bike_blue.save
 
 skate_green = Vehicle.new(vehicle_type: 'skate', description: 'skate vert neuf', address: 'Cor Président John Fitzgerald Kennedy, 13007 Marseille', price: 30, name: 'Skate neuf')
 skate_green.photo.attach(io: file_skate_green, filename: 'nes.png', content_type: 'image/jpg')
 skate_green.user = user1
-skate_green.save!
+skate_green.save
 
 rolling_skate = Vehicle.new(vehicle_type: 'rolling-skates', description: 'rollers jaunes', address: '67 Prom. Georges Pompidou, 13008 Marseille', price: 20, name: 'Rollers jaunes')
 rolling_skate.photo.attach(io: file_rolling_skate, filename: 'nes.png', content_type: 'image/jpg')
 rolling_skate.user = user2
-rolling_skate.save!
+rolling_skate.save
 
 ice_skate = Vehicle.new(vehicle_type: 'ice-skates', description: 'Patins à glace', address: 'Pl. Castellane, 13006 Marseille', price: 30, name: 'patins à glace')
 ice_skate.photo.attach(io: file_ice_skate, filename: 'nes.png', content_type: 'image/jpg')
 ice_skate.user = user1
-ice_skate.save!
+ice_skate.save
