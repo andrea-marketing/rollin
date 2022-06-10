@@ -51,15 +51,24 @@
   margin: 20px;
 }
 
+.card-reservation {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 12px;
+  padding: 20px;
 }
 
 .card-trip > img {
   height: 300px;
+
   width: 100%;
   object-fit: cover;
 }
@@ -84,6 +93,13 @@
   align-items: flex-end;
   position: relative;
 }
+
+
+
+.card-trip .buttons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-around;
 
 .card-trip-infos .card-trip-user {
   position: absolute;
