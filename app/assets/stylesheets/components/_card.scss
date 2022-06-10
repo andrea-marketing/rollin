@@ -6,13 +6,18 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 4px;
   color: gray;
+  h3{
+    color: $blue;
+    font-weight: bold;
+  }
 }
 
 .card-vehicle > img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
+  padding: 10px;
 }
 
 .card-vehicle h2 {
@@ -48,4 +53,173 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 20px;
+}
+
+.card-reservation {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+}
+
+.card-trip > img {
+  height: 300px;
+
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip .buttons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-product-infos .card-product-user {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 50px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-product {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  position: relative;
+}
+
+.card-product > img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-booking {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+.card-booking img {
+  height: 75%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-booking-infos {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+/*.card-booking-infos .card-booking-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}*/
+
+.description {
+  padding: 4px;
+  text-align: left;
+}
+
+.statut {
+  font-size: 12px;
+  align-items: center;
+}
+
+#avatar-bordered {
+  position: absolute;
+  right: 16px;
+  //top: -20px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
 }

@@ -1,60 +1,88 @@
-<div class="container">
+  <div class="banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1596100829892-44093cec9d46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2816&q=80);">
+    <div class="container">
+        <p> Hello <i class="highlight"> <%=current_user.first_name %> </i> 👋🏼 !! </p>
+        <% if params[:query].present? %>
+         <p>Here are the cool vehicles that we found in <i class="capitalize"> <%= params[:query] %></i> for you 😎</p>
+        <% else %>
+         <p> Let's find some cool vehicles for you 😎</p>
+        <% end %>
+        <%= form_tag vehicles_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-blue" %>
+        <% end %>
+    </div>
+  </div>
+
+<div class="organize">
+
   <div class="row">
+
     <div class="col-12 col-md-6">
-        <div  style="width: 100%; height: 100vh;"
-              data-controller="mapbox"
-              data-mapbox-markers-value="<%= @markers.to_json %>"
-              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="info">
+
+        <h2>Categories</h2>
+
+        <div class="filters" data-controller="filter">
+          <div class="filter"  data-action="click->filter#on">
+            <p>🚲</p>
+          </div>
+          <div class="filter">
+            <p>🛴</p>
+          </div>
+          <div class="filter">
+            <p>🛹</p>
+          </div>
+          <div class="filter">
+            <p>🛼</p>
+          </div>
+          <div class="filter">
+            <p>⛸</p>
+          </div>
         </div>
+
+        <h2>Vehicles</h2>
+          <div class="cards">
+            <% @vehicles.each do |vehicle| %>
+              <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
+                <div class="card-vehicle">
+                  <% if vehicle.photo.attached? %>
+                    <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+                  <% end %>
+                  <div class="card-vehicle-infos">
+                    <div>
+                      <p><strong><%= vehicle.name %></strong></p>
+                      <p><%= vehicle.description  %></p>
+                    </div>
+                    <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+                    <div class="filtered">
+                      <% if vehicle.vehicle_type == "bike" %>
+                        <p>🚲</p>
+                      <% elsif vehicle.vehicle_type == "scooter" %>
+                        <p>🛴</p>
+                      <% elsif vehicle.vehicle_type == "skate" %>
+                        <p>🛹</p>
+                      <% elsif vehicle.vehicle_type == "rolling-skates" %>
+                        <p>🛼</p>
+                      <% else %>
+                        <p>⛸</p>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
     </div>
 
     <div class="col-12 col-md-6">
-    <div class="info">
-      <div class="header">
-        <p> Hello <i class="highlight"> <%=@current_user.first_name %> </i>  👋🏼 !!</p>
-        <h1> Let's find you <i class="highlight">a vehicle!</i> </h1>
+      <div style="width: 100%; height: 100vh;"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @markers.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <h2>Categories</h2>
-
-      <div class="filters">
-        <p class="filter">🚲</p>
-        <p class="filter">🛴</p>
-        <p class="filter">🛹</p>
-        <p class="filter">🛼</p>
-        <p class="filter">⛸</p>
-      </div>
-
-      <h2>Vehicles</h2>
-        <div class="cards">
-          <% @vehicles.each do |vehicle| %>
-            <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
-              <div class="card-vehicle">
-                <% if vehicle.photo.attached? %>
-                  <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-                <% end %>
-                <div class="card-vehicle-infos">
-                  <div>
-                    <p><strong><%= vehicle.name %></strong></p>
-                    <p><%= vehicle.description  %></p>
-                  </div>
-                  <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
-                  <div class="filtered">
-                    <% if vehicle.vehicle_type == "bike" %>
-                      <p>🚲</p>
-                    <% elsif vehicle.vehicle_type == "scooter" %>
-                      <p>🛴</p>
-                    <% elsif vehicle.vehicle_type == "skate" %>
-                      <p>🛹</p>
-                    <% elsif vehicle.vehicle_type == "rolling-skates" %>
-                      <p>🛼</p>
-                    <% else %>
-                      <p>⛸</p>
-                    <% end %>
-                    </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
     </div>
   </div>
 </div>

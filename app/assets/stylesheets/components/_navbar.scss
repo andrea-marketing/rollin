@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: sticky;
+  top:0;
+  z-index: 100;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,9 +17,13 @@
 
 #newbutton {
   color: white;
-  padding: 8px 24px;
+  padding: 8px 15px;
   border-radius: 4px;
   background: #1F4690;
   transition: background 0.3s ease;
   text-decoration: none;
+}
+
+.image-logo {
+  width: 40px;
 }

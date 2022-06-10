@@ -1,6 +1,48 @@
-.mapboxgl-ctrl-geocoder {
-  max-width: none;
+.form-select {
+  width: 78%;
+  border-radius: 200px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: none;
+  color: $black;
+}
+
+.form-control {
+  width: 78%;
+  border-radius: 200px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+  border: none;
+  color: $black;
+}
+
+.form-title {
+  color: $blue;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.mapboxgl-ctrl-geocoder{
+  border-radius: 200px;
   width: 100%;
-  border: 1px solid lightgrey;
-  box-shadow: none;
+  font-size: 1px;
+  line-height: 1px;
+}
+
+
+.mapboxgl-ctrl-geocoder--input {
+  border-radius: 200px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.form input{
+  background-color: white;
+  border: none;
+  margin-top: 2px;
+}
+
+.flatpickr-input {
+  border: 1px solid black;
 }

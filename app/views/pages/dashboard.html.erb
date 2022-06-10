@@ -1,0 +1,64 @@
+<div class= "container">
+    <h1 class="my-4">My Vehicles</h1>
+      <div class="reservation d-flex">
+        <% @vehicles.each do |vehicle| %>
+          <div class="">
+            <%= link_to vehicle_path(vehicle) , :action => 'go' do %>
+              <div class="card-vehicle">
+                <% if vehicle.photo.attached? %>
+                  <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+                <% end %>
+                <div class="card-vehicle-infos">
+                  <div>
+                    <p><strong><%= vehicle.name %></strong></p>
+                    <p><%= vehicle.description  %></p>
+                  </div>
+                  <p class="card-vehicle-pricing"><%=vehicle.price%>€</p>
+                  <div class="filtered">
+                    <% if vehicle.vehicle_type == "bike" %>
+                      <p>🚲</p>
+                    <% elsif vehicle.vehicle_type == "scooter" %>
+                      <p>🛴</p>
+                    <% elsif vehicle.vehicle_type == "skate" %>
+                      <p>🛹</p>
+                    <% elsif vehicle.vehicle_type == "rolling-skates" %>
+                      <p>🛼</p>
+                    <% else %>
+                      <p>⛸</p>
+                    <% end %>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+
+  <div class="container">
+    <h1 class=" my-4">Booking requests</h1>
+    <div class="reservation d-flex flex-wrap">
+      <% @booking_demands.each do |booking| %>
+        <div class="card-vehicle p-4">
+          <div class="row">
+            <h3> <%= "#{booking.vehicle.name}"%></h3>
+            <p><%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%><p>
+            <p> <strong><%= booking.price %>€</strong> </p>
+            <div class="card-vehicle-infos">
+              <%= button_to "Accept", accept_this_booking_path(booking), method: :patch, class: "btn btn-green-light"%>
+              <%= button_to "Reject", reject_this_booking_path(booking), method: :patch, class: "btn btn-red-light" %>
+            </div>
+          </div>
+          <div class="row text-center border-top pt-3">
+            <% if booking.status == 0  %>
+              <h6> Pending </h6>
+              <% elsif booking.status == 1 %>
+              <h6 class="text-success"> Accepted </h6>
+              <% else %>
+              <h6 class="text-danger"> Declined </h6>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </div>

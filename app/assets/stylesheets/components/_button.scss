@@ -1,13 +1,68 @@
-.btn-blue {
+.btn-blue{
   color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: $dark-blue;
-  transition: background 0.3s ease;
-  text-decoration: none;
+  background: linear-gradient(-45deg, #5279ee, #3cd6e7, #23a6d5, #23d5ab);
+  border-radius: 30px;
+  padding: 8px 40px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position .5s;
+  margin: 0 10px;
+}
+.btn-blue:hover{
+  background-position: 0 0;
+  color: white;
 }
 
-.btn-blue:hover {
-  background: #96b0f2f1;
+.btn-red{
   color: white;
+  background: linear-gradient(-45deg, #ee5252, #ff7216, #d5a223, #efdd13);
+  border-radius: 30px;
+  padding: 8px 40px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position .5s;
+}
+.btn-red:hover{
+  background-position: 0 0;
+  color: white;
+}
+
+
+.btn-green-light{
+  color: #1EDD88;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #1EDD88;
+}
+.btn-green-light:hover{
+  color: white;
+  background-color: #1EDD88;
+}
+
+.btn-red-light{
+  color: #FD1015;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #FD1015;
+}
+.btn-red-light:hover{
+  color: white;
+  background-color: #FD1015;
+}
+
+.btn-blue-light{
+  color: #1e8af6;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #1e8af6;
+}
+.btn-blue-light:hover{
+  color: white;
+  background-color: #1e8af6;
 }
