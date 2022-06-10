@@ -28,16 +28,19 @@
           <div class="card-product-infos">
             <div>
               <h2><%= "#{@vehicle.user.first_name}'s #{@vehicle.name}"%></h2>
-              <p id="dayPrice" data-price="<%= @vehicle.price %>">  <%= @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i> /day</p>
             </div>
           <h2 class="card-product-pricing" id="dayPrice" data-price="<%= @vehicle.price %>"> <%=  @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i>/ day</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle card-product-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag"photo-avatar-profil.png", class: "avatar dropdown-toggle card-product-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
         </div>
       </div>
 
     <div class="card-reservation">
       <%= render "calendarpicker", vehicle: @vehicle %>
-      <p id="totalPrice"></p>
+      <div id="totalPrice" class="border-top pt-3 mt-3"></div>
       <p><strong><%= @booking.price %></strong></p>
     </div>
   </div>
