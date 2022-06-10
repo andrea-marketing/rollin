@@ -18,7 +18,8 @@
 
   </div>
   <%end %> -->
-  <div class="reservations">
+
+  <!--<div class="reservations">
     <h1>My Bookings</h1>
     <p>You have <%=@bookings.count%> bookings</p>
     <% @bookings.each_with_index do |booking, index|%>
@@ -44,4 +45,35 @@
       </div>
     <%end%>
   </div>
+</div>-->
+
+
+  <div class="reservations">
+    <h1>My Bookings</h1>
+    <p>You have <%= pluralize @bookings.count, "booking" %></p>
+    <% @bookings.each_with_index do |booking, index|%>
+    <div class="card-booking mt-2">
+      <%= cl_image_tag booking.vehicle.photo.key, height: 400, width: 700, crop: :fill %>
+      <div class="card-booking-infos">
+        <div class="description">
+          <h2><%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h2>
+          <p><%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%></p>
+          <p class="card-trip-pricing"><strong><%= booking.price %>€</strong></p>
+        </div>
+      </div>
+        <!--<img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
+        <div class="statut blink">
+          <% if booking.status == 0  %>
+            <h6> En attente </h6>
+          <% elsif booking.status == 1 %>
+            <h6 class="text-success"> Confirmé </h6>
+          <% else %>
+            <h6 class="text-danger"> Rejeté </h6>
+          <% end %>
+        </div>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-booking-user avatar-bordered" />
+    </div>
+    <%end%>
+  </div>
+
 </div>

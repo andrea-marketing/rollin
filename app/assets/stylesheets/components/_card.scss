@@ -150,3 +150,71 @@
   opacity: .7;
   margin: 0;
 }
+
+.card-booking {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-around;
+}
+
+.card-booking img {
+  height: 75%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-booking-infos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-booking-infos .card-booking-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.description {
+  padding: 16px;
+  text-align: left;
+}
+
+.statut {
+  font-size: 12px;
+}
+
+.card-booking-user .avatar-bordered {
+  position: absolute;
+  right: 16px;
+  //top: -20px;
+  width: 40px;
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
