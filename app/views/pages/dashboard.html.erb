@@ -40,21 +40,25 @@
     <div class="reservation d-flex">
       <% @booking_demands.each do |booking| %>
         <div class="card-vehicle p-4">
-          <h4> <%= "#{booking.vehicle.user.first_name}'s #{booking.vehicle.name}"%></h4>
-          <%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%>
-            <h3>Montant <%= booking.price %>€</h3>
-              <div class="card-vehicle-infos">
-                <%= button_to "Accept", accept_this_booking_path(booking), method: :patch %>
-                <%= button_to "Reject", reject_this_booking_path(booking), method: :patch  %>
-                  <% if booking.status == 0  %>
-                    <p> "En attente" </p>
-                    <% elsif booking.status == 1 %>
-                    <p> "Confirmé </p>
-                    <% else %>
-                    <p> "Rejeté"</p>
-                  <% end %>
-              </div>
+          <div class="row">
+            <h3> <%= "#{booking.vehicle.name}"%></h3>
+            <p><%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%><p>
+            <p> <%= booking.price %>€</p>
+            <div class="card-vehicle-infos">
+              <%= button_to "Accept", accept_this_booking_path(booking), method: :patch, class: "btn btn-outline-success btn-sm"%>
+              <%= button_to "Reject", reject_this_booking_path(booking), method: :patch, class: "btn btn-outline-danger btn-sm" %>
+            </div>
           </div>
-        <% end %>
+          <div class="row">
+            <% if booking.status == 0  %>
+              <h6> En attente </h6>
+              <% elsif booking.status == 1 %>
+              <h6 class="text-success"> Confirmé </h6>
+              <% else %>
+              <h6 class="text-danger"> Rejeté </h6>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
       </div>
   </div>

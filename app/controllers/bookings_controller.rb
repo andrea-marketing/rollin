@@ -49,10 +49,9 @@ class BookingsController < ApplicationController
   def accept
     @booking.status = 1
     authorize @booking
-
     if @booking.save
       sleep(2)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -61,6 +60,7 @@ class BookingsController < ApplicationController
   def reject
     @booking.status = 2
     @booking.save
+    redirect_to dashboard_path
     authorize @booking
   end
 
