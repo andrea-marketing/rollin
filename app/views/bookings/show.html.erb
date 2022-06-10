@@ -18,10 +18,3 @@
     </div>
   </div>
 </div>
-
-<%= button_to "Accept", accept_vehicle_booking_path(@booking), method: :patch %>
-<%= button_to "Reject", reject_vehicle_booking_path(@booking), method: :patch %>
-
-<% if @booking.status == 0  %>
-   <p> "En attente" </p>
-<% end %>
