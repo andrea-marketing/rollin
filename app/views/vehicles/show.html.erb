@@ -21,20 +21,22 @@
 
   <div class= "product">
 
-    <div class= "product-info">
-          <% if @vehicle.photo.attached? %>
-            <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-
-    </div>
+      <div class="card-product mt-4">
+        <% if @vehicle.photo.attached? %>
+          <%= cl_image_tag @vehicle.photo.key, height: 500, width: 800, crop: :fill %>
+        <% end %>
+          <div class="card-product-infos">
+            <div>
+              <h2><%= "#{@vehicle.user.first_name}'s #{@vehicle.name}"%></h2>
+              <p id="dayPrice" data-price="<%= @vehicle.price %>">  <%= @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i> /day</p>
+            </div>
+          <h2 class="card-product-pricing" id="dayPrice" data-price="<%= @vehicle.price %>"> <%=  @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i>/ day</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+        </div>
+      </div>
 
     <div class="card-reservation">
-      <h2>Réservations</h2>
-      <h3><%= @vehicle.name %></h3>
-      <p id="dayPrice" data-price="<%= @vehicle.price %>">  <%= @vehicle.price %> <i class="fa-solid fa-sack-dollar"></i> par jour</p>
-
       <%= render "calendarpicker", vehicle: @vehicle %>
-
       <p id="totalPrice"></p>
       <p><strong><%= @booking.price %></strong></p>
     </div>

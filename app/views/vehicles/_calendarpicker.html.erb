@@ -4,7 +4,7 @@
     <%= simple_form_for([@vehicle, @booking]) do |f| %>
       <%= f.input  :start_date, as: :string, required: true, input_html: {id: "range_start",  class:"range"},class: "input-reservation" %>
       <%= f.input :end_date, as: :string, required: true, input_html: {id: "range_end", class:"range"},  class: "input-reservation" %>
-      <%= f.button :submit, "Go", class: "btn btn-blue", placeholder: "Make a reservation" %>
+      <%= f.button :submit, "Make a reservation", class: "btn btn-blue", placeholder: "Make a reservation" %>
     <% end %>
   </div>
 </div>
