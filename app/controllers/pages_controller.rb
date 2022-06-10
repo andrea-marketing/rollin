@@ -11,7 +11,5 @@ class PagesController < ApplicationController
     @bookings.each do |booking|
       @booking_demands << booking if booking.vehicle.user == @user
     end
-    # @bookings = Booking.where(vehicle: c)
-    # console
   end
 end
