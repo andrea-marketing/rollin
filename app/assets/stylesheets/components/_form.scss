@@ -16,10 +16,10 @@
   color: $black;
 }
 
-.form > h3 {
+.form-title {
   color: $blue;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .mapboxgl-ctrl-geocoder{
@@ -40,7 +40,6 @@
 .form input{
   background-color: white;
   border: none;
-  color: $black;
   margin-top: 2px;
 }
 
