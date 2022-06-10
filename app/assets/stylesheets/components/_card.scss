@@ -6,12 +6,16 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 4px;
   color: gray;
+  h3{
+    color: $blue;
+    font-weight: bold;
+  }
 }
 
 .card-vehicle > img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
   padding: 10px;
 }
@@ -70,7 +74,7 @@
   height: 300px;
 
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-trip h2 {
@@ -132,7 +136,7 @@
 .card-product > img {
   height: 300px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-product h2 {

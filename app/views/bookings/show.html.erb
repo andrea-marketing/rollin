@@ -4,8 +4,8 @@
       <div class="wrapper" id="booking-recap-wrapper">
         <div class="booking-recap-container">
           <div class="text-center">
-            <h1>Ta réservation</h1>
-            <h2>en attente de confirmation</h2>
+            <h1>Your reservation</h1>
+            <h2>waiting for confirmation</h2>
             <h4> <%= "#{@booking.vehicle.user.first_name}'s #{@booking.vehicle.name}"%></h4>
             <%= "#{@booking.start_date.strftime('%d/%m/%Y')} - #{@booking.end_date.strftime('%d/%m/%Y')}"%>
             <h3><%= @booking.price %>€</h3>
