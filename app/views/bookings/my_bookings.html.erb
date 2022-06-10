@@ -34,11 +34,11 @@
         </div>
         <div class="px-4">
          <% if booking.status == 0  %>
-            <h6> En attente </h6>
+            <h6> Pending </h6>
             <% elsif booking.status == 1 %>
-            <h6 class="text-success"> Confirmé </h6>
+            <h6 class="text-success"> Accepted </h6>
             <% else %>
-            <h6 class="text-danger"> Rejeté </h6>
+            <h6 class="text-danger"> Declined </h6>
           <% end %>
         </div>
       </div>

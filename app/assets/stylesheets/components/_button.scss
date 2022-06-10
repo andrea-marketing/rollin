@@ -26,3 +26,43 @@
   background-position: 0 0;
   color: white;
 }
+
+
+.btn-green-light{
+  color: #1EDD88;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #1EDD88;
+}
+.btn-green-light:hover{
+  color: white;
+  background-color: #1EDD88;
+}
+
+.btn-red-light{
+  color: #FD1015;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #FD1015;
+}
+.btn-red-light:hover{
+  color: white;
+  background-color: #FD1015;
+}
+
+.btn-blue-light{
+  color: #1e8af6;
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #1e8af6;
+}
+.btn-blue-light:hover{
+  color: white;
+  background-color: #1e8af6;
+}

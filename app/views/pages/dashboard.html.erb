@@ -36,26 +36,26 @@
   </div>
 
   <div class="container">
-    <h1 class=" my-4">Demandes de réservations</h1>
+    <h1 class=" my-4">Booking requests</h1>
     <div class="reservation d-flex flex-wrap">
       <% @booking_demands.each do |booking| %>
         <div class="card-vehicle p-4">
           <div class="row">
             <h3> <%= "#{booking.vehicle.name}"%></h3>
             <p><%= "#{booking.start_date.strftime('%d/%m/%Y')} - #{booking.end_date.strftime('%d/%m/%Y')}"%><p>
-            <p> <%= booking.price %>€</p>
+            <p> <strong><%= booking.price %>€</strong> </p>
             <div class="card-vehicle-infos">
-              <%= button_to "Accept", accept_this_booking_path(booking), method: :patch, class: "btn btn-outline-success btn-sm"%>
-              <%= button_to "Reject", reject_this_booking_path(booking), method: :patch, class: "btn btn-outline-danger btn-sm" %>
+              <%= button_to "Accept", accept_this_booking_path(booking), method: :patch, class: "btn btn-green-light"%>
+              <%= button_to "Reject", reject_this_booking_path(booking), method: :patch, class: "btn btn-red-light" %>
             </div>
           </div>
-          <div class="row">
+          <div class="row text-center border-top pt-3">
             <% if booking.status == 0  %>
-              <h6> En attente </h6>
+              <h6> Pending </h6>
               <% elsif booking.status == 1 %>
-              <h6 class="text-success"> Confirmé </h6>
+              <h6 class="text-success"> Accepted </h6>
               <% else %>
-              <h6 class="text-danger"> Rejeté </h6>
+              <h6 class="text-danger"> Declined </h6>
             <% end %>
           </div>
         </div>

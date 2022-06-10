@@ -5,7 +5,7 @@
         <div class="booking-recap-container">
           <div class="text-center">
             <h1>Your Booking</h1>
-            <h2>pending confirmation</h2>
+            <h2>waiting for confirmation</h2>
             <h4> <%= "#{@booking.vehicle.user.first_name}'s #{@booking.vehicle.name}"%></h4>
             <%= "#{@booking.start_date.strftime('%d/%m/%Y')} - #{@booking.end_date.strftime('%d/%m/%Y')}"%>
             <h3 class="my-3"><%= @booking.price %>€</h3>
