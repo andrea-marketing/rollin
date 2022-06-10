@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :vehicles
   has_many :bookings
 
+  has_one_attached :photo
+
   include PgSearch::Model
   multisearchable against: [:first_name]
 end
